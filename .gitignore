@@ -5,7 +5,5 @@ Haley/isolated_images
 Haley/validation.txt
 Haley/Xset.npy
 Haley/Yset.npy
-Haley/x_train_subset.npy
-Haley/y_train_subset.npy
-Haley/embeddings.npy
-Haley/embedding_labels.npy
+Haley/embeddings_mobilenet_trained_lego.npy
+Haley/embeddings_pretrainedmobilenet.npy

@@ -5,10 +5,6 @@ from sklearn.decomposition import PCA
 import matplotlib.patches as mpatches
 
 ## NOTE PLEASE RUN 2D NOTEBOOK FIRST TO GENERATE NEEDED FILES###################################
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.decomposition import PCA
 
 # Load data
 x_train = np.load("Haley/x_train_subset.npy")
@@ -58,31 +54,33 @@ ax.legend(handles, [lego_Y_labels[cls] for cls in unique_classes], title="LEGO T
 plt.show()
 
 
+
 # EMBEDDINGS VISUAL ###############################################################################################
-embeddings = np.load("Haley/embeddings.npy")
-embedding_labels = np.load("Haley/embedding_labels.npy")
 
+# Load embeddings and labels
+embeddings = np.load("Haley/embeddings_mobilenet_trained_lego.npy")
+y_train = np.load("Haley/y_train_subset.npy")
 
-label_names = [lego_Y_labels[label] for label in embedding_labels]
+lego_Y_labels = [3001, 3003, 3023, 3794, 4150, 4286, 6632, 18654, 43093, 54200]
 
-
+labels = np.argmax(y_train, axis=1)
+lego_labels = [lego_Y_labels[idx] for idx in labels]
 
 # Apply PCA (reduce to 3D)
 pca = PCA(n_components=3)
 pca_result = pca.fit_transform(embeddings)  # Use your extracted embeddings
-
-# Create 3D plot
+print(embeddings.shape)
 # Create 3D plot
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 
-# Scatter plot
+# Scatter plot with color coding based on labels
 scatter = ax.scatter(
     pca_result[:, 0], 
     pca_result[:, 1], 
     pca_result[:, 2], 
-    c=embedding_labels,  
-    cmap='tab10',  
+    c=labels,  # Color by labels
+    cmap='tab10',  # Choose colormap
     alpha=0.7
 )
 
@@ -90,15 +88,17 @@ scatter = ax.scatter(
 ax.set_xlabel("PCA Component 1")
 ax.set_ylabel("PCA Component 2")
 ax.set_zlabel("PCA Component 3")
-ax.set_title("3D PCA Visualization of Last-Layer Embeddings")
+ax.set_title("3D PCA Visualization of last feature extraction layer embeddings")
 
-# Generate legend patches for unique LEGO names
-unique_labels = np.unique(embedding_labels)
+# Create custom legend for each class (ensure it shows correct labels)
+unique_labels = np.unique(labels)
 legend_patches = [mpatches.Patch(color=plt.cm.tab10(i / len(unique_labels)), label=lego_Y_labels[i]) 
                   for i in unique_labels]
 
-# Move legend outside the plot
+# Move the legend outside the plot (adjust the location)
 ax.legend(handles=legend_patches, title="LEGO Types", loc="center left", bbox_to_anchor=(1.05, 0.5))
 
+# Show plot
+plt.tight_layout()  # Adjust layout to prevent clipping
 plt.show()
 plt.close()
