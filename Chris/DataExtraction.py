@@ -11,7 +11,7 @@ legoShoppingList = [3001,3003,3023,3794,4150,4286,6632,18654,43093,54200]
 # chose where the big data set is located on your computer
 folder_path = "C:/Users/chris/Downloads/archive/dataset"
 # chose where the isolated images will go
-new_images = "C:/Users/chris/WPI/Machine Learning/FinalProject/Chris/Chosen2"
+new_images = "C:/Users/chris/WPI/Machine Learning/FinalProject/Chris/ChosenOnes"
 # choose the size of the lego images
 SIZE = 128
 
