@@ -7,3 +7,6 @@ Haley/Xset.npy
 Haley/Yset.npy
 Haley/embeddings_mobilenet_trained_lego.npy
 Haley/embeddings_pretrainedmobilenet.npy
+Haley/mobilenet_v2_model.pth
+Haley/combined_features.npy
+Haley/embeddings_mobilenet_feat_ext.npy
