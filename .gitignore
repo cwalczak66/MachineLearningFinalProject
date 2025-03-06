@@ -7,6 +7,14 @@ Haley/Xset.npy
 Haley/Yset.npy
 Haley/embeddings_mobilenet_trained_lego.npy
 Haley/embeddings_pretrainedmobilenet.npy
+<<<<<<< Updated upstream
 Haley/mobilenet_v2_model.pth
 Haley/combined_features.npy
 Haley/embeddings_mobilenet_feat_ext.npy
+=======
+Charlotte/dataset*
+Charlotte/new_images*
+Charlotte/Yset.npy
+Charlotte/Xset.npy
+.DS_Store
+>>>>>>> Stashed changes

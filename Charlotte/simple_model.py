@@ -70,8 +70,8 @@ def softmaxRegression(trainingImages, trainingLabels, testingImages, testingLabe
             W -= epsilon * gradient
 
         # Log the last 20 epochs
-        if epoch >= epochs - 20:
-            print(f"Epoch {epoch + 1} loss = {loss:.4f}")
+        # if epoch >= epochs - 20:
+        print(f"Epoch {epoch + 1} loss = {loss:.4f}")
 
     # Test set accuracy calculation
     test_scores = testingImages @ W
