@@ -14,4 +14,5 @@ Charlotte/dataset*
 Charlotte/new_images*
 Charlotte/Yset.npy
 Charlotte/Xset.npy
+Charlotte/lego_classifier_model.h5
 .DS_Store
