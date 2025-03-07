@@ -16,10 +16,10 @@ class_mapping = {
     9: 54200
 }
 
+
 def show_image(image, title="Image"):
     if len(image.shape) == 3 and image.shape[-1] == 1:  # Grayscale (128, 128, 1)
         image = image.squeeze()  # Remove the last dimension -> (128, 128)
-
     plt.imshow(image, cmap='gray')
     plt.title(title)
     plt.axis('off')
@@ -39,10 +39,9 @@ def loop_through_pixels(img_array):
 
 # Load the saved model
 model = load_model('C:/Users/chris/WPI/Machine Learning/FinalProject/Chris/lego_piece_classifier.h5')
-
-
 # Load the image and convert it to grayscale (128x128, 1 channel)
-img_path = 'C:/Users/chris/WPI/Machine Learning/FinalProject/Chris/PreformanceMeasures/olala2.jpg'
+img_path = 'C:/Users/chris/WPI/Machine Learning/FinalProject/Chris/PreformanceMeasures/3023.jpg'
+
 img = image.load_img(img_path, target_size=(128, 128), color_mode='grayscale')
 
 # Convert image to array and scale pixel values
