@@ -5,9 +5,10 @@ from matplotlib import pyplot as plt
 xtrain = np.load("Xset.npy")
 ytrain = np.load("Yset.npy")
 
-n = 7999
+n = 5000
 
 print(ytrain[n])
+
 
 image = xtrain[n]
 plt.imshow(image, cmap='gray')
